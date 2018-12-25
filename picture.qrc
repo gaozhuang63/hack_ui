@@ -1,0 +1,45 @@
+<RCC>
+    <qresource prefix="/new/background">
+        <file>pic/background/background.jpg</file>
+        <file>pic/background/background1.jpg</file>
+        <file>pic/background/login.jpg</file>
+        <file>pic/background/page.jpg</file>
+        <file>pic/background/earth.jpg</file>
+        <file>pic/background/worldmap.jpg</file>
+        <file>pic/background/Chinamap.jpg</file>
+        <file>pic/background/Chinamap_chosen.jpg</file>
+    </qresource>
+    <qresource prefix="/new/icon">
+        <file>pic/icon/com_offline.png</file>
+        <file>pic/icon/com_online.png</file>
+        <file>pic/icon/point_high.png</file>
+        <file>pic/icon/point_low.png</file>
+        <file>pic/icon/point.png</file>
+        <file>pic/icon/point1.png</file>
+        <file>pic/icon/point2.png</file>
+        <file>pic/icon/ic_more_safe.png</file>
+        <file>pic/icon/ic_refresh.png</file>
+        <file>pic/icon/icon_classify.png</file>
+        <file>pic/icon/login.png</file>
+        <file>pic/icon/password.png</file>
+        <file>pic/icon/closebutton.png</file>
+        <file>pic/icon/maxbutton.png</file>
+        <file>pic/icon/minbutton.png</file>
+        <file>pic/icon/unmaxbutton.png</file>
+    </qresource>
+    <qresource prefix="/new/unit">
+        <file>pic/unit/hash.gif</file>
+        <file>pic/unit/unit1.gif</file>
+        <file>pic/unit/unit3.gif</file>
+        <file>pic/unit/unit4.gif</file>
+        <file>pic/unit/unit2.gif</file>
+        <file>pic/unit/code.gif</file>
+        <file>pic/unit/access_denied.gif</file>
+        <file>pic/unit/access_granted.gif</file>
+        <file>pic/unit/downloading.gif</file>
+        <file>pic/unit/map_contact.gif</file>
+        <file>pic/unit/random.gif</file>
+        <file>pic/unit/Terminal.gif</file>
+        <file>pic/unit/sc_db.gif</file>
+    </qresource>
+</RCC>
