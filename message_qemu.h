@@ -11,12 +11,12 @@ namespace Ui {
 class message_qemu;
 }
 
-class message_qemu : public QDialog
+class message_qemu : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit message_qemu(QWidget *parent = nullptr );
+    explicit message_qemu(QWidget *parent = 0 );
     ~message_qemu();
     void paintEvent(QPaintEvent *);
 

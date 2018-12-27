@@ -111,7 +111,6 @@ Widget::Widget(QWidget *parent) :
                                     );
 
     ui->label->setStyleSheet("color:white;");
-    //ui->label->setGeometry(QRect(1180, 470, 40, 40));
     ui->label_2->setStyleSheet("color:white;");
     ui->label_3->setWindowFlags(Qt::FramelessWindowHint);//无边框
     ui->label_3->setAttribute(Qt::WA_TranslucentBackground);//背景透明
@@ -124,32 +123,6 @@ Widget::Widget(QWidget *parent) :
     QMovie *movie_1 = new QMovie(":/new/unit/pic/unit/unit1.gif");
     ui->label_4->setMovie(movie_1);
     movie_1->start();
-
-
-
-
-    /*等比例缩放/*
-    ui->label->setScaledContents(true);
-    ui->label_2->setScaledContents(true);
-    ui->label_3->setScaledContents(true);
-    ui->label_4->setScaledContents(true);
-    ui->label_5->setScaledContents(true);
-
-    resetGrid(ui->widget,currentScreenWid/1920.0,currentScreenHei/1080.0);
-    resetGrid(ui->frame,currentScreenWid/1920.0,currentScreenHei/1080.0);
-    resetGrid(ui->frame_2,currentScreenWid/1920.0,currentScreenHei/1080.0);
-    resetGrid(ui->widget,currentScreenWid/1920.0,currentScreenHei/1080.0);
-    resetGrid(ui->lineEdit,currentScreenWid/1920.0,currentScreenHei/1080.0);
-    resetGrid(ui->widget_2,currentScreenWid/1920.0,currentScreenHei/1080.0);
-    resetGrid(ui->widget_3,currentScreenWid/1920.0,currentScreenHei/1080.0);
-    resetGrid(ui->widget_9,currentScreenWid/1920.0,currentScreenHei/1080.0);
-    resetGrid(ui->lineEdit_2,currentScreenWid/1920.0,currentScreenHei/1080.0);
-    resetGrid(ui->pushButton,currentScreenWid/1920.0,currentScreenHei/1080.0);
-    resetGrid(ui->layoutWidget,currentScreenWid/1920.0,currentScreenHei/1080.0);
-    resetGrid(ui->pushButton_2,currentScreenWid/1920.0,currentScreenHei/1080.0);
-    */
-
-
 
 
 }
@@ -175,7 +148,6 @@ void Widget::on_pushButton_clicked()
     {
         //登陆成功
         DlgWait * Dlg = new DlgWait(this);
-        //FitWindow::resetUI(Dlg);
         Dlg->show();
         Dlg->move(710,390);
         QTimer::singleShot(3000, this, SLOT(slotHideFinishedLabel()));  // 这里是一个3秒定时器， 且只执行一次。
@@ -185,7 +157,6 @@ void Widget::on_pushButton_clicked()
     {
         //用户输入存在错误
         dlgwait_1 * Dlg = new dlgwait_1(this);
-        //FitWindow::resetUI(Dlg);
         Dlg->show();
         Dlg->move(710,390);
         QTimer::singleShot(3000, this, SLOT(slotHidefailed()));  // 这里是一个3秒定时器， 且只执行一次。
@@ -267,9 +238,9 @@ Dialog::~Dialog()  //Dialog类的析构函数里面不知道写什么，就没�
 void Widget::slotHideFinishedLabel()
 {
 
-    //login *login_log = new login(this);
-    connect(&login_log,SIGNAL(send_signal()),this,SLOT(reshow()));//当点击子界面时，调用主界面的reshow()函数
-    login_log.show();//子界面出现
+    login *login_log = new login();
+    login_log->show();//子界面出现
+    connect(login_log,SIGNAL(send_signal()),this,SLOT(reshow()));//当点击子界面时，调用主界面的reshow()函数
     this->hide();//主界面隐藏
 
 }
@@ -278,7 +249,6 @@ void Widget::slotHideFinishedLabel()
 void Widget::slotHidefailed()
 {
     Widget *w = new Widget();
-    //FitWindow::resetUI(w);
     w->show();
     this->close();
 

@@ -6,12 +6,14 @@
 #include <QApplication>
 #include "title_bar.h"
 #include "fitwindow.h"
-
+#include <QDesktopWidget>
 
 #ifdef Q_OS_WIN
 #pragma comment(lib, "user32.lib")
 #include <qt_windows.h>
 #endif
+
+
 
 TitleBar::TitleBar(QWidget *parent)
     : QWidget(parent)
@@ -143,7 +145,7 @@ void TitleBar::onClicked()
         else if (pButton == m_pMaximizeButton)
         {
             //pWindow->isMaximized() ? pWindow->showNormal() : pWindow->showMaximized();
-            if(pWindow->isMaximized())
+            if(pWindow->isFullScreen())
                         {
                             pWindow->showNormal();
                             //FitWindow::resetUI(pWindow);
@@ -152,7 +154,7 @@ void TitleBar::onClicked()
                         }
                         else
                         {
-                            pWindow->showMaximized();          //全屏显示
+                            pWindow->showFullScreen();          //全屏显示
                             //FitWindow::resetUI(pWindow);
                             m_pMaximizeButton->setStyleSheet("QPushButton{border-image: url(:/new/icon/pic/icon/unmaxbutton.png);}");
                             //setMinimumWidth(this->frameGeometry().width());
@@ -173,7 +175,7 @@ void TitleBar::updateMaximize()
     QWidget *pWindow = this->window();
     if (pWindow->isTopLevel())
     {
-        bool bMaximize = pWindow->isMaximized();
+        bool bMaximize = pWindow->isFullScreen();
         if (bMaximize)
         {
             m_pMaximizeButton->setToolTip(tr("Restore"));

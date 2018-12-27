@@ -42,8 +42,6 @@ private slots:
 private:
     Ui::Widget *ui;
 
-    login login_log;
-
 };
 
 class Dialog:public QDialog

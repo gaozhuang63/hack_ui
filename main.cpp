@@ -5,10 +5,7 @@
 #include <QDesktopWidget>
 #include "widget.h"
 #include <QSize>
-#include "fitwindow.h"
 
-
-extern void resetGrid(QWidget *widget,double factorx,double factory);
 
 int main(int argc, char *argv[])
 {

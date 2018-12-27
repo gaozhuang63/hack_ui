@@ -8,7 +8,7 @@
 #include "title_bar.h"
 
 message_qemu::message_qemu(QWidget *parent) :
-    QDialog (parent),
+    QWidget (parent),
     ui(new Ui::message_qemu)
 {
     TitleBar *pTitleBar = new TitleBar(this);
@@ -17,32 +17,44 @@ message_qemu::message_qemu(QWidget *parent) :
     ui->setupUi(this);
 
     //自定义标题栏
-    this->setWindowFlags(Qt::FramelessWindowHint | windowFlags());
+    setWindowFlags(Qt::FramelessWindowHint | windowFlags());
     QPalette pal(palette());
     pal.setColor(QPalette::Background, QColor(50, 50, 50));
     setAutoFillBackground(true);
     setPalette(pal);
 
     ui->verticalLayout_2->addWidget(pTitleBar);
-    ui->verticalLayout_2->addStretch();
+    //ui->verticalLayout_2->addStretch();
     ui->verticalLayout_2->setSpacing(0);
     ui->verticalLayout_2->setContentsMargins(0, 0, 0, 0);
     ui->verticalLayout_2->setDirection(QBoxLayout::BottomToTop);//自下而上
 
 
     ui->tabWidget->tabBar()->setStyle(new CustomTabStyle);                             //设置横向文字
+    ui->tabWidget->setStyleSheet("QTabWidget::pane {border-left:0px solid #eeeeee;\
+                                                    background:  transparent;}");           /*整个最上面的tab栏*/
+    ui->tabWidget_2->setStyleSheet("QTabWidget#tabWidget_2::tab-bar{ alignment: left; \
+                                                         left:160px;}\
+                                    QTabWidget#tabWidget_2::pane   {border-top:0px solid #e8f3f9;\
+                                                        background:  transparent; }  \
+                                    QTabBar::tab{background:rgb(186, 186, 186);	\
+                                                        color:white;            \
+                                                        min-width:160px;        \
+                                                        min-height:40px;}\
+                                    QTabBar::tab:selected { background:rgb(8, 156, 255);	\
+                                                            color:white;            \
+                                                            min-width:160px;        \
+                                                            min-height:40px;}"
+                                                            );
 
    // ui->tabWidget->setStyleSheet("}");          //背景透明
     QIcon icon;
     icon.addPixmap(QPixmap(QString::fromUtf8(":/new/icon/pic/icon/icon_classify.png")), QIcon::Normal, QIcon::Off);     //系统图标
     this->setWindowIcon(icon);
-    //this->setWindowFlag(Qt::CustomizeWindowHint);
 
     QMovie *movie = new QMovie(":/new/unit/pic/unit/code.gif");
     ui->label_2->setMovie(movie);
     movie->start();
-
-
 
     QMovie *movie_1 = new QMovie(":/new/unit/pic/unit/sc_db.gif");
     ui->label_3->setMovie(movie_1);

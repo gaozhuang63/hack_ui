@@ -15,18 +15,19 @@ int nCurrentValue = 0;
 int nCurrentValue1 = 0;
 int nCurrentValue2 = 0;
 
-login::login(QWidget *parent) :
+login::login(QWidget *parent ) :
     QWidget(parent ),                //parent = 0 ui文件设置为非模态  子任务栏显示图标
     ui(new Ui::login)
 {
 
     //自定义标题栏
+   TitleBar *pTitleBar = new TitleBar(this);
+   installEventFilter(pTitleBar);
 
-    TitleBar *pTitleBar = new TitleBar(this);
-    installEventFilter(pTitleBar);
-
+    setWindowFlags(Qt::FramelessWindowHint | windowFlags());
     ui->setupUi(this);
-    this->setWindowFlags(Qt::FramelessWindowHint | windowFlags());
+
+
 
     QPalette pal(palette());
     pal.setColor(QPalette::Background, QColor(50, 50, 50));
@@ -34,7 +35,7 @@ login::login(QWidget *parent) :
     setPalette(pal);
 
     ui->verticalLayout_4->addWidget(pTitleBar);
-    ui->verticalLayout_4->addStretch();
+   // ui->verticalLayout_4->addStretch();           //弹簧导致屏幕不完整
     ui->verticalLayout_4->setSpacing(0);
     ui->verticalLayout_4->setContentsMargins(0, 0, 0, 0);
     ui->verticalLayout_4->setDirection(QBoxLayout::BottomToTop);//自下而上
@@ -198,9 +199,6 @@ void login::handleTimeout_1()
 
 
 
-
-
-
 //背景颜色透明
 void login::ConvertImageToTransparent(QPixmap qPixmap)
 {
@@ -218,4 +216,9 @@ void login::ConvertImageToTransparent(QPixmap qPixmap)
         mybits->rgba_bits[3] = (mybits->rgba== 0xFFFFFFFF)?0:255;
         mybits++;
     }
+}
+
+void login::on_pushButton_2_clicked()
+{
+    test.show();
 }

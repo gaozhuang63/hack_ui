@@ -8,6 +8,7 @@
 #include <QTimer>
 #include <QObject>
 #include <QMovie>
+#include "test.h"
 
 namespace Ui {
 class login;
@@ -18,7 +19,7 @@ class login : public QWidget
     Q_OBJECT
 
 public:
-    explicit login(QWidget *parent = nullptr);
+    explicit login(QWidget *parent = 0);
     ~login();
     void paintEvent(QPaintEvent *);
     void ConvertImageToTransparent(QPixmap qPixmap);
@@ -26,6 +27,8 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+
+    void on_pushButton_2_clicked();
 
 public slots:
     void reshow();          //界面重现函数
@@ -40,6 +43,7 @@ private:
     Ui::login *ui;
     QTimer *Timer;
     message_qemu msg_qemu;
+    test test;
 
 };
 
