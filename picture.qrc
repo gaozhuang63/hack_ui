@@ -41,5 +41,7 @@
         <file>pic/unit/random.gif</file>
         <file>pic/unit/Terminal.gif</file>
         <file>pic/unit/sc_db.gif</file>
+        <file>pic/unit/number.gif</file>
+        <file>pic/unit/block.gif</file>
     </qresource>
 </RCC>

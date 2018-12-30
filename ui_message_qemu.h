@@ -31,6 +31,7 @@ public:
     QWidget *widget_3;
     QHBoxLayout *horizontalLayout;
     QLabel *label;
+    QLabel *label_6;
     QSpacerItem *horizontalSpacer;
     QWidget *widget_4;
     QVBoxLayout *verticalLayout_3;
@@ -88,15 +89,23 @@ public:
         widget_3->setMinimumSize(QSize(1884, 260));
         widget_3->setMaximumSize(QSize(16777215, 16777215));
         horizontalLayout = new QHBoxLayout(widget_3);
+        horizontalLayout->setSpacing(0);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         label = new QLabel(widget_3);
         label->setObjectName(QString::fromUtf8("label"));
         label->setMinimumSize(QSize(371, 241));
-        label->setMaximumSize(QSize(371, 241));
+        label->setMaximumSize(QSize(16777215, 16777215));
 
         horizontalLayout->addWidget(label);
 
-        horizontalSpacer = new QSpacerItem(1189, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        label_6 = new QLabel(widget_3);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_6->setMinimumSize(QSize(0, 0));
+        label_6->setMaximumSize(QSize(445, 409));
+
+        horizontalLayout->addWidget(label_6);
+
+        horizontalSpacer = new QSpacerItem(1147, 239, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer);
 
@@ -271,6 +280,7 @@ public:
     {
         message_qemu->setWindowTitle(QApplication::translate("message_qemu", "Configure", nullptr));
         label->setText(QApplication::translate("message_qemu", "TextLabel", nullptr));
+        label_6->setText(QApplication::translate("message_qemu", "TextLabel", nullptr));
         label_2->setText(QString());
         pushButton->setText(QApplication::translate("message_qemu", "Com1", nullptr));
         pushButton_2->setText(QApplication::translate("message_qemu", "Com2", nullptr));

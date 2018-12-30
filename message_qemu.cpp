@@ -6,6 +6,7 @@
 #include <QMovie>
 #include <QVBoxLayout>
 #include "title_bar.h"
+#include "test.h"
 
 message_qemu::message_qemu(QWidget *parent) :
     QWidget (parent),
@@ -59,6 +60,22 @@ message_qemu::message_qemu(QWidget *parent) :
     QMovie *movie_1 = new QMovie(":/new/unit/pic/unit/sc_db.gif");
     ui->label_3->setMovie(movie_1);
     movie_1->start();
+
+    QMovie *movie_2= new QMovie(":/new/unit/pic/unit/number.gif");
+    ui->label->setScaledContents(true);
+    ui->label->setMovie(movie_2);
+    movie_2->start();
+    QMovie *movie_3= new QMovie(":/new/unit/pic/unit/block.gif");
+    ui->label_6->setMovie(movie_3);
+    movie_3->start();
+
+
+
+  //  test *back_gif = new test(this);
+  //  back_gif ->show();
+
+    ui->label->setScaledContents(true);
+    ui->label->resize(ui->widget->size());
 
     QIcon button_ico_on(":/new/icon/pic/icon/com_online.png");
     QIcon button_ico_off(":/new/icon/pic/icon/com_offline.png");
@@ -134,6 +151,6 @@ void message_qemu::paintEvent(QPaintEvent *)
 void message_qemu::on_pushButton_clicked()
 {
     emit send_signal();
-    this->hide();
+    //this->hide();
 }
 

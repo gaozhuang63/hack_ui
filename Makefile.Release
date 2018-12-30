@@ -148,8 +148,10 @@ release/qrc_picture.cpp: picture.qrc \
 		pic/unit/unit3.gif \
 		pic/unit/code.gif \
 		pic/unit/downloading.gif \
+		pic/unit/block.gif \
 		pic/unit/unit2.gif \
 		pic/unit/random.gif \
+		pic/unit/number.gif \
 		pic/unit/unit1.gif \
 		pic/unit/hash.gif \
 		pic/unit/map_contact.gif \
@@ -1571,7 +1573,9 @@ release/widget.o: widget.cpp widget.h \
 		../../QT/5.12.0/mingw73_64/include/QtWidgets/QMessageBox \
 		../../QT/5.12.0/mingw73_64/include/QtWidgets/qmessagebox.h \
 		title_bar.h \
-		../../QT/5.12.0/mingw73_64/include/QtWidgets/QDesktopWidget
+		../../QT/5.12.0/mingw73_64/include/QtWidgets/QDesktopWidget \
+		../../QT/5.12.0/mingw73_64/include/QtCore/QTime \
+		../../QT/5.12.0/mingw73_64/include/QtCore/qdatetime.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\widget.o widget.cpp
 
 release/message_qemu.o: message_qemu.cpp message_qemu.h \
@@ -1738,7 +1742,8 @@ release/message_qemu.o: message_qemu.cpp message_qemu.h \
 		../../QT/5.12.0/mingw73_64/include/QtCore/qjsonobject.h \
 		../../QT/5.12.0/mingw73_64/include/QtCore/qjsonvalue.h \
 		../../QT/5.12.0/mingw73_64/include/QtCore/qfactoryinterface.h \
-		title_bar.h
+		title_bar.h \
+		test.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\message_qemu.o message_qemu.cpp
 
 release/login.o: login.cpp login.h \
@@ -1909,7 +1914,9 @@ release/login.o: login.cpp login.h \
 		../../QT/5.12.0/mingw73_64/include/QtCore/QDebug \
 		../../QT/5.12.0/mingw73_64/include/QtGui/QIcon \
 		../../QT/5.12.0/mingw73_64/include/QtGui/QPixmap \
-		title_bar.h
+		title_bar.h \
+		../../QT/5.12.0/mingw73_64/include/QtCore/QTime \
+		../../QT/5.12.0/mingw73_64/include/QtCore/qdatetime.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\login.o login.cpp
 
 release/title_bar.o: title_bar.cpp ../../QT/5.12.0/mingw73_64/include/QtWidgets/QLabel \
@@ -2655,7 +2662,33 @@ release/test.o: test.cpp test.h \
 		../../QT/5.12.0/mingw73_64/include/QtGui/qvector2d.h \
 		../../QT/5.12.0/mingw73_64/include/QtGui/qtouchdevice.h \
 		ui_test.h \
-		title_bar.h
+		../../QT/5.12.0/mingw73_64/include/QtCore/QVariant \
+		../../QT/5.12.0/mingw73_64/include/QtWidgets/QApplication \
+		../../QT/5.12.0/mingw73_64/include/QtWidgets/qapplication.h \
+		../../QT/5.12.0/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../QT/5.12.0/mingw73_64/include/QtCore/qeventloop.h \
+		../../QT/5.12.0/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../QT/5.12.0/mingw73_64/include/QtGui/qguiapplication.h \
+		../../QT/5.12.0/mingw73_64/include/QtGui/qinputmethod.h \
+		../../QT/5.12.0/mingw73_64/include/QtWidgets/QHBoxLayout \
+		../../QT/5.12.0/mingw73_64/include/QtWidgets/qboxlayout.h \
+		../../QT/5.12.0/mingw73_64/include/QtWidgets/qlayout.h \
+		../../QT/5.12.0/mingw73_64/include/QtWidgets/qlayoutitem.h \
+		../../QT/5.12.0/mingw73_64/include/QtWidgets/qgridlayout.h \
+		../../QT/5.12.0/mingw73_64/include/QtWidgets/QLabel \
+		../../QT/5.12.0/mingw73_64/include/QtWidgets/qlabel.h \
+		../../QT/5.12.0/mingw73_64/include/QtWidgets/qframe.h \
+		../../QT/5.12.0/mingw73_64/include/QtWidgets/QVBoxLayout \
+		title_bar.h \
+		../../QT/5.12.0/mingw73_64/include/QtGui/QMovie \
+		../../QT/5.12.0/mingw73_64/include/QtGui/qmovie.h \
+		../../QT/5.12.0/mingw73_64/include/QtGui/qimagereader.h \
+		../../QT/5.12.0/mingw73_64/include/QtGui/qimageiohandler.h \
+		../../QT/5.12.0/mingw73_64/include/QtCore/qplugin.h \
+		../../QT/5.12.0/mingw73_64/include/QtCore/qpointer.h \
+		../../QT/5.12.0/mingw73_64/include/QtCore/qjsonobject.h \
+		../../QT/5.12.0/mingw73_64/include/QtCore/qjsonvalue.h \
+		../../QT/5.12.0/mingw73_64/include/QtCore/qfactoryinterface.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\test.o test.cpp
 
 release/qrc_picture.o: release/qrc_picture.cpp 

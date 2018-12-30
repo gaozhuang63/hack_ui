@@ -13,8 +13,9 @@
 #include <QTimer>
 #include <QApplication>
 #include <QDesktopWidget>
+#include <QTime>
 
-
+#define STOPTIME (0.1*1000)
 
 class Dialog;
 
@@ -38,7 +39,6 @@ Widget::Widget(QWidget *parent) :
     setPalette(pal);
 
     ui->verticalLayout_6->addWidget(pTitleBar);
-    ui->verticalLayout_6->addStretch();
     ui->verticalLayout_6->setSpacing(0);
     ui->verticalLayout_6->setContentsMargins(0, 0, 0, 0);
     ui->verticalLayout_6->setDirection(QBoxLayout::BottomToTop);//自下而上
@@ -135,7 +135,7 @@ Widget::~Widget()
 //加载背景图
 void Widget::paintEvent(QPaintEvent *)
 {
-    QPixmap pixmap = QPixmap(":/new/background/pic/background/page.jpg").scaled(this->size());
+    QPixmap pixmap = QPixmap(":/new/background/pic/background/page.jpg").scaled(this->size()); //scaled 缩放背景
     QPainter painter(this);
     painter.drawPixmap(this->rect(), pixmap);
 }
@@ -240,7 +240,12 @@ void Widget::slotHideFinishedLabel()
 
     login *login_log = new login();
     login_log->show();//子界面出现
+    login_log->showFullScreen();
     connect(login_log,SIGNAL(send_signal()),this,SLOT(reshow()));//当点击子界面时，调用主界面的reshow()函数
+    QTime currTime = QTime::currentTime();
+    QTime dieTime = currTime.addMSecs(STOPTIME);       //延时显示 防止闪屏
+    while( QTime::currentTime() < dieTime )
+        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
     this->hide();//主界面隐藏
 
 }
@@ -250,6 +255,10 @@ void Widget::slotHidefailed()
 {
     Widget *w = new Widget();
     w->show();
+    QTime currTime = QTime::currentTime();
+    QTime dieTime = currTime.addMSecs(STOPTIME);       //延时显示 防止闪屏
+    while( QTime::currentTime() < dieTime )
+        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
     this->close();
 
 }

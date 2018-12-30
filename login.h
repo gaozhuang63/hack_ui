@@ -9,6 +9,7 @@
 #include <QObject>
 #include <QMovie>
 #include "test.h"
+#include <QTime>
 
 namespace Ui {
 class login;

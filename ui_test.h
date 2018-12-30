@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -24,12 +25,15 @@ public:
     QWidget *widget;
     QHBoxLayout *horizontalLayout;
     QWidget *widget_2;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *label;
 
     void setupUi(QWidget *test)
     {
         if (test->objectName().isEmpty())
             test->setObjectName(QString::fromUtf8("test"));
-        test->resize(400, 300);
+        test->resize(1920, 1080);
+        test->setMinimumSize(QSize(1920, 1080));
         verticalLayout = new QVBoxLayout(test);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         widget = new QWidget(test);
@@ -38,6 +42,13 @@ public:
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         widget_2 = new QWidget(widget);
         widget_2->setObjectName(QString::fromUtf8("widget_2"));
+        horizontalLayout_2 = new QHBoxLayout(widget_2);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        label = new QLabel(widget_2);
+        label->setObjectName(QString::fromUtf8("label"));
+
+        horizontalLayout_2->addWidget(label);
+
 
         horizontalLayout->addWidget(widget_2);
 
@@ -53,6 +64,7 @@ public:
     void retranslateUi(QWidget *test)
     {
         test->setWindowTitle(QApplication::translate("test", "Form", nullptr));
+        label->setText(QApplication::translate("test", "TextLabel", nullptr));
     } // retranslateUi
 
 };
