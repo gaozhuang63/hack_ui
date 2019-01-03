@@ -25,10 +25,11 @@ public:
     void paintEvent(QPaintEvent *);
     void ConvertImageToTransparent(QPixmap qPixmap);
 
+
+    QMovie *movie;
+
 private slots:
     void on_pushButton_clicked();
-
-
     void on_pushButton_2_clicked();
 
 public slots:

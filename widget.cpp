@@ -43,7 +43,8 @@ Widget::Widget(QWidget *parent) :
     ui->verticalLayout_6->setContentsMargins(0, 0, 0, 0);
     ui->verticalLayout_6->setDirection(QBoxLayout::BottomToTop);//自下而上
 
-
+    wid_x=width();
+    wid_y=height();
 
     QIcon icon;
     icon.addPixmap(QPixmap(QString::fromUtf8(":/new/icon/pic/icon/ic_more_safe.png")), QIcon::Normal, QIcon::Off);
@@ -114,13 +115,13 @@ Widget::Widget(QWidget *parent) :
     ui->label_2->setStyleSheet("color:white;");
     ui->label_3->setWindowFlags(Qt::FramelessWindowHint);//无边框
     ui->label_3->setAttribute(Qt::WA_TranslucentBackground);//背景透明
-    QMovie *movie = new QMovie(":/new/unit/pic/unit/unit2.gif");
+    movie = new QMovie(":/new/unit/pic/unit/unit2.gif");
     ui->label_3->setMovie(movie);
     movie->start();
 
     ui->label_4->setWindowFlags(Qt::FramelessWindowHint);//无边框
     ui->label_4->setAttribute(Qt::WA_TranslucentBackground);//背景透明
-    QMovie *movie_1 = new QMovie(":/new/unit/pic/unit/unit1.gif");
+    movie_1 = new QMovie(":/new/unit/pic/unit/unit1.gif");
     ui->label_4->setMovie(movie_1);
     movie_1->start();
 
@@ -147,24 +148,22 @@ void Widget::on_pushButton_clicked()
             this->ui->lineEdit_2->text().trimmed()== tr("test123"))  //去除lineEdit内的用户名和密码进行校验
     {
         //登陆成功
-        DlgWait * Dlg = new DlgWait(this);
+        Dlg = new DlgWait(this);
         Dlg->show();
-        Dlg->move(710,390);
+        Dlg->move((wid_x - Dlg->width())/2,(wid_y - Dlg->height())/2);
         QTimer::singleShot(3000, this, SLOT(slotHideFinishedLabel()));  // 这里是一个3秒定时器， 且只执行一次。
 
     }
     else
     {
         //用户输入存在错误
-        dlgwait_1 * Dlg = new dlgwait_1(this);
-        Dlg->show();
-        Dlg->move(710,390);
+        Dlg_1 = new dlgwait_1(this);
+        Dlg_1->show();
+        Dlg_1->move((wid_x - Dlg_1->width())/2,(wid_y - Dlg_1->height())/2);
         QTimer::singleShot(3000, this, SLOT(slotHidefailed()));  // 这里是一个3秒定时器， 且只执行一次。
 
         //QMessageBox::warning(this,tr("waring"),tr("your passward is wrong"),QMessageBox::Yes);
-        //ui->lineEdit->clear();  //清空姓名nameLine
-        //ui->lineEdit_2->clear();  //清空密码passwardLine
-        //ui->lineEdit->setFocus();  //将鼠标重新定位到nameLine
+
     }
 
 
@@ -240,7 +239,7 @@ void Widget::slotHideFinishedLabel()
 
     login *login_log = new login();
     login_log->show();//子界面出现
-    login_log->showFullScreen();
+   // login_log->showFullScreen();
     connect(login_log,SIGNAL(send_signal()),this,SLOT(reshow()));//当点击子界面时，调用主界面的reshow()函数
     QTime currTime = QTime::currentTime();
     QTime dieTime = currTime.addMSecs(STOPTIME);       //延时显示 防止闪屏
@@ -253,13 +252,18 @@ void Widget::slotHideFinishedLabel()
 //登陆失败
 void Widget::slotHidefailed()
 {
-    Widget *w = new Widget();
-    w->show();
-    QTime currTime = QTime::currentTime();
-    QTime dieTime = currTime.addMSecs(STOPTIME);       //延时显示 防止闪屏
-    while( QTime::currentTime() < dieTime )
-        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
-    this->close();
+//    Widget *w = new Widget();
+//    w->show();
+//    QTime currTime = QTime::currentTime();
+//    QTime dieTime = currTime.addMSecs(STOPTIME);       //延时显示 防止闪屏
+//    while( QTime::currentTime() < dieTime )
+//        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+//    this->close();
+
+    Dlg_1->close();
+    ui->lineEdit->clear();  //清空姓名nameLine
+    ui->lineEdit_2->clear();  //清空密码passwardLine
+    ui->lineEdit->setFocus();  //将鼠标重新定位到nameLine
 
 }
 

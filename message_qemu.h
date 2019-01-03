@@ -5,6 +5,8 @@
 #include <QPainter>
 #include <QDialog>
 #include "customtabstyle.h"
+#include "loading.h"
+#include "test.h"
 
 
 namespace Ui {
@@ -20,10 +22,25 @@ public:
     ~message_qemu();
     void paintEvent(QPaintEvent *);
 
+    QMovie *movie;
+    QMovie *movie_1;
+    QMovie *movie_2;
+    QMovie *movie_3;
+    int msg_x;
+    int msg_y;
+
+    loading *load;
+    test *t1;
+
+
+public slots:
+    void load_info();
 
 
 private slots:
     void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
 
 signals:
     void send_signal();//这个函数用户向主界面通知关闭的消息

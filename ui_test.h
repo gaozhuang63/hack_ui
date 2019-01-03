@@ -32,8 +32,8 @@ public:
     {
         if (test->objectName().isEmpty())
             test->setObjectName(QString::fromUtf8("test"));
-        test->resize(1920, 1080);
-        test->setMinimumSize(QSize(1920, 1080));
+        test->resize(620, 318);
+        test->setMinimumSize(QSize(620, 318));
         verticalLayout = new QVBoxLayout(test);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         widget = new QWidget(test);

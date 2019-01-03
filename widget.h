@@ -26,6 +26,16 @@ public:
     void resetGrid(QWidget *widget,double factorx,double factory);
 
 
+    QMovie *movie;
+    QMovie *movie_1;
+
+    DlgWait * Dlg;
+    dlgwait_1 * Dlg_1;
+
+    int wid_x;
+    int wid_y;
+
+
 public slots:
     void reshow();
     void slotHideFinishedLabel();
@@ -34,9 +44,6 @@ public slots:
 private slots:
 
     void on_pushButton_clicked();
-
-
-
     void on_pushButton_2_clicked();
 
 private:

@@ -32,7 +32,7 @@ DlgWait::DlgWait(QWidget *parent) :
 
     //加载gif图片
 
-    QMovie *movie = new QMovie(":/new/unit/pic/unit/access_granted.gif");
+    movie = new QMovie(":/new/unit/pic/unit/access_granted.gif");
 
     ui->label->setMovie(movie);
 

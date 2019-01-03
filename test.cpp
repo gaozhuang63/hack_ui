@@ -7,23 +7,14 @@ test::test(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::test)
 {
-    TitleBar *pTitleBar = new TitleBar(this);
-    installEventFilter(pTitleBar);
+
     //自定义标题栏
     ui->setupUi(this);
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool | Qt::WindowStaysOnTopHint);// 去掉标题栏,去掉任务栏显示，窗口置顶
+    setAttribute(Qt::WA_TranslucentBackground);//背景透明
+    setAttribute(Qt::WA_DeleteOnClose);//关闭窗体时销毁窗口 使得再次打开窗体gif动画重新播放
 
-    QPalette pal(palette());
-    pal.setColor(QPalette::Background, QColor(50, 50, 50));
-    setAutoFillBackground(true);
-    setPalette(pal);
-
-    ui->verticalLayout->addWidget(pTitleBar);
-    ui->verticalLayout->setSpacing(0);
-    ui->verticalLayout->setContentsMargins(0, 0, 0, 0);
-   // ui->verticalLayout->setDirection(QBoxLayout::BottomToTop);//自下而上
-
-
-    QMovie *movie= new QMovie(":/new/unit/pic/unit/number.gif");
+    QMovie *movie= new QMovie(":/new/unit/pic/unit/sc_db.gif");
     ui->label->setMovie(movie);
     movie->start();
 

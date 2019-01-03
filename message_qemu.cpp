@@ -7,6 +7,8 @@
 #include <QVBoxLayout>
 #include "title_bar.h"
 #include "test.h"
+#include <QTimer>
+#include <QDesktopWidget>
 
 message_qemu::message_qemu(QWidget *parent) :
     QWidget (parent),
@@ -53,21 +55,24 @@ message_qemu::message_qemu(QWidget *parent) :
     icon.addPixmap(QPixmap(QString::fromUtf8(":/new/icon/pic/icon/icon_classify.png")), QIcon::Normal, QIcon::Off);     //系统图标
     this->setWindowIcon(icon);
 
-    QMovie *movie = new QMovie(":/new/unit/pic/unit/code.gif");
+    movie = new QMovie(":/new/unit/pic/unit/code.gif");
     ui->label_2->setMovie(movie);
     movie->start();
 
-    QMovie *movie_1 = new QMovie(":/new/unit/pic/unit/sc_db.gif");
+    movie_1 = new QMovie(":/new/unit/pic/unit/sc_db.gif");
     ui->label_3->setMovie(movie_1);
     movie_1->start();
 
-    QMovie *movie_2= new QMovie(":/new/unit/pic/unit/number.gif");
+    movie_2= new QMovie(":/new/unit/pic/unit/number.gif");
     ui->label->setScaledContents(true);
     ui->label->setMovie(movie_2);
     movie_2->start();
-    QMovie *movie_3= new QMovie(":/new/unit/pic/unit/block.gif");
+    movie_3= new QMovie(":/new/unit/pic/unit/block.gif");
     ui->label_6->setMovie(movie_3);
     movie_3->start();
+
+    msg_x=width();
+    msg_y=height();
 
 
 
@@ -152,5 +157,25 @@ void message_qemu::on_pushButton_clicked()
 {
     emit send_signal();
     //this->hide();
+}
+
+
+void message_qemu::on_pushButton_2_clicked()
+{
+
+   load = new loading(this);
+   load->show();
+   load->move ((msg_x - load->width())/2,(msg_y - load->height())/2);
+   QTimer::singleShot(5000, this, SLOT(load_info()));  // 这里是一个3秒定时器， 且只执行一次。
+
+}
+
+void message_qemu::load_info()
+{
+
+    load->close();
+    t1=new test();
+    t1->show();
+
 }
 

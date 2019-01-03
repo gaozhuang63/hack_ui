@@ -15,6 +15,9 @@ public:
     explicit DlgWait(QWidget *parent = nullptr);
     ~DlgWait();
 
+    QMovie *movie;
+
+
 private:
     Ui::DlgWait *ui;
 };

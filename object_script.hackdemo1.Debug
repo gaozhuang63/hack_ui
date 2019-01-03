@@ -8,6 +8,7 @@ debug/dlgwait_1.o
 debug/fitwindow.o
 debug/customtabstyle.o
 debug/test.o
+debug/loading.o
 debug/qrc_picture.o
 debug/moc_widget.o
 debug/moc_message_qemu.o
@@ -17,3 +18,4 @@ debug/moc_dlgwait.o
 debug/moc_dlgwait_1.o
 debug/moc_fitwindow.o
 debug/moc_test.o
+debug/moc_loading.o

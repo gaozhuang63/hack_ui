@@ -8,6 +8,7 @@ release/dlgwait_1.o
 release/fitwindow.o
 release/customtabstyle.o
 release/test.o
+release/loading.o
 release/qrc_picture.o
 release/moc_widget.o
 release/moc_message_qemu.o
@@ -17,3 +18,4 @@ release/moc_dlgwait.o
 release/moc_dlgwait_1.o
 release/moc_fitwindow.o
 release/moc_test.o
+release/moc_loading.o

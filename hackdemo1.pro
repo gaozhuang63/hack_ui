@@ -34,7 +34,8 @@ SOURCES += \
     dlgwait_1.cpp \
     fitwindow.cpp \
     customtabstyle.cpp \
-    test.cpp
+    test.cpp \
+    loading.cpp
 
 HEADERS += \
         widget.h \
@@ -45,7 +46,8 @@ HEADERS += \
     dlgwait_1.h \
     fitwindow.h \
     customtabstyle.h \
-    test.h
+    test.h \
+    loading.h
 
 FORMS += \
         widget.ui \
@@ -54,7 +56,8 @@ FORMS += \
     title_bar.ui \
     dlgwait.ui \
     dlgwait_1.ui \
-    test.ui
+    test.ui \
+    loading.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

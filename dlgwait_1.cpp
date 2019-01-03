@@ -29,7 +29,7 @@ dlgwait_1::dlgwait_1(QWidget *parent) :
 
     //加载gif图片
 
-    QMovie *movie = new QMovie(":/new/unit/pic/unit/access_denied.gif");
+    movie = new QMovie(":/new/unit/pic/unit/access_denied.gif");
 
     ui->label->setMovie(movie);
 

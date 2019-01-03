@@ -15,6 +15,8 @@ public:
     explicit dlgwait_1(QWidget *parent = nullptr);
     ~dlgwait_1();
 
+    QMovie *movie;
+
 private:
     Ui::dlgwait_1 *ui;
 };
