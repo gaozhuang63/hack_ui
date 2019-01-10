@@ -63,13 +63,13 @@ message_qemu::message_qemu(QWidget *parent) :
     ui->label_3->setMovie(movie_1);
     movie_1->start();
 
-    movie_2= new QMovie(":/new/unit/pic/unit/number.gif");
-    ui->label->setScaledContents(true);
-    ui->label->setMovie(movie_2);
-    movie_2->start();
-    movie_3= new QMovie(":/new/unit/pic/unit/block.gif");
-    ui->label_6->setMovie(movie_3);
-    movie_3->start();
+//    movie_2= new QMovie(":/new/unit/pic/unit/number.gif");
+//    ui->label->setScaledContents(true);
+//    ui->label->setMovie(movie_2);
+//    movie_2->start();
+//    movie_3= new QMovie(":/new/unit/pic/unit/block.gif");
+//    ui->label_6->setMovie(movie_3);
+//    movie_3->start();
 
     msg_x=width();
     msg_y=height();
@@ -150,6 +150,7 @@ void message_qemu::paintEvent(QPaintEvent *)
     QPixmap pixmap = QPixmap(":/new/background/pic/background/background1.jpg").scaled(this->size());
     QPainter painter(this);
     painter.drawPixmap(this->rect(), pixmap);
+
 }
 
 
@@ -178,4 +179,5 @@ void message_qemu::load_info()
     t1->show();
 
 }
+
 

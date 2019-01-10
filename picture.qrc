@@ -26,6 +26,11 @@
         <file>pic/icon/maxbutton.png</file>
         <file>pic/icon/minbutton.png</file>
         <file>pic/icon/unmaxbutton.png</file>
+        <file>pic/icon/chicken.png</file>
+        <file>pic/icon/com.png</file>
+        <file>pic/icon/warning.png</file>
+        <file>pic/icon/data.png</file>
+        <file>pic/icon/firewall.png</file>
     </qresource>
     <qresource prefix="/new/unit">
         <file>pic/unit/hash.gif</file>
@@ -43,5 +48,8 @@
         <file>pic/unit/sc_db.gif</file>
         <file>pic/unit/number.gif</file>
         <file>pic/unit/block.gif</file>
+        <file>pic/unit/hacked-2127635_1280.png</file>
+        <file>pic/unit/skull-and-crossbones-1518822_1920.jpg</file>
+        <file>pic/unit/tech-1.jpg</file>
     </qresource>
 </RCC>
